@@ -1,0 +1,23 @@
+//imports files
+@import "bootstrap/bootstrap";
+//variables
+@header-color: #909EA5;
+@header-height: 60px;
+@content-color: #E1E1E1;
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+.header {
+	height: @header-height;
+	width: 100%;
+	background-color: @header-color;
+	float: left;
+}
+.content {
+	background-color: @content-color;
+	height: 100%;
+	width: 100%;
+	padding-top: @header-height;
+}
