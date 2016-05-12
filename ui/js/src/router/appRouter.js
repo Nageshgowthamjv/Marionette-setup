@@ -1,5 +1,5 @@
-define(['marionette'],
-  function(Marionette) {
+define(['marionette', 'views/testView', 'models/testModel', 'application'],
+  function(Marionette, TestView, TestModel, app) {
 
     var MyRouter = Marionette.AppRouter.extend({
 
@@ -17,14 +17,14 @@ define(['marionette'],
         // do something here.
       },
       home: function() {
-
-      },
-      test: function() {
-
+        //testing home page with dummy test view
+        var testView = new TestView({
+          model: new TestModel()
+        });
+        app.content.show(testView);
       }
 
     });
 
     return new MyRouter();
-
   });

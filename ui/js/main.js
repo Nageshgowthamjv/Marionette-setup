@@ -6,10 +6,15 @@ requirejs.config({
 		underscore: '../libs/underscore',
 		backbone: '../libs/backbone',
 		marionette: '../libs/backbone.marionette',
+		marionetteConfig: '../libs/marionetteConfig',
 		bootstrap: '../libs/bootstrap/bootstrap',
+		handlebars: '../libs/handlebars',
+		hbs: '../libs/hbs',
+		i18nprecompile: '../libs/i18nprecompile',
 
 		router: 'router/appRouter',
-		application: '../application'
+		application: '../application',
+		templates: 'templates'
 
 	},
 	shim: {
@@ -25,11 +30,25 @@ requirejs.config({
 			exports: 'Marionette'
 		},
 
+		'marionetteConfig': {
+			deps: ['marionette']
+		},
+
+		'handlebars': {
+			exports: 'Handlebars'
+		},
+
 		'bootstrap': ['jquery']
+	},
+	hbs: {
+		templateExtension: 'html',
+		disableHelpers: false,
+		disableI18n: true,
+		compileOptions: {}
 	}
 });
 
-require(['marionette', 'router', 'application', 'bootstrap'], function(Marionette, AppRouter, app) {
+require(['marionette', 'router', 'application', 'bootstrap', 'marionetteConfig', 'handlebars'], function(Marionette, AppRouter, app) {
 
 	app.addRegions({
 		header: '#header',
